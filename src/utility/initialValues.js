@@ -64,6 +64,50 @@ export const addPurchaseValues = (data) => {
   return initialValues;
 };
 
+export const addExpenseValues = (data) => {
+  const initialValues = {
+    expense_date: data ? data.expense_date : "",
+    expense_category: data ? data.expense_category : "",
+    Warehouse: data ? data.Warehouse : "",
+    amount: data ? data.amount : "",
+    Account: data ? data.Account : "",
+    // expense_document: data ? data.expense_document : "",
+    note: data ? data.note : "",
+    
+  };
+  return initialValues;
+};
+export const addStaffValues = (data) => {
+  const initialValues = {
+    username: data ? data.username : "",
+    password: data ? data.password : "",
+    email: data ? data.email : "",
+    phone_number: data ? data.phone_number : "",
+    company_name: data ? data.company_name : "",
+    role: data ? data.role : "",
+    
+  };
+  return initialValues;
+};
+
+export const addSupplierValues = (data) => {
+  const initialValues = {
+    name: data ? data.name : "",
+    company_name: data ? data.company_name : "",
+    tax_number: data ? data.tax_number : "",
+    opening_balance: data ? data.opening_balance : "",
+    email: data ? data.email : "",
+    phone_number: data ? data.quantity : "",
+    whatsapp_number: data ? data.whatsapp_number : "",
+    address: data ? data.address : "",
+    city: data ? data.city : "",
+    state: data ? data.state : "",
+    postal_code: data ? data.postal_code : 0,
+    country: data ? data.country : "",
+  };
+  return initialValues;
+};
+
 export const addStockCountValues = (data) => {
   const initialValues = {
     warehouse: data ? data.warehouse : "",

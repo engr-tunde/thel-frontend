@@ -1,12 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaPlus, FaTimesCircle } from "react-icons/fa";
 import axios from "axios";
 import { AiFillEdit } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import {
-  DELETE_ADJUSTMENT,
-  DELETE_STOCKCOUNT,
-} from "../../constants/constants";
 import CategoryForm from "../form-modals/CategoryForm";
 import {
   deleteCategory,
@@ -18,6 +14,8 @@ import { errorMessage, successMessage } from "../../utility/helpers";
 import ProductForm from "../form-modals/ProductForm";
 import PurchaseForm from "../form-modals/PurchaseForm";
 import SaleForm from "../form-modals/SaleForm";
+import ExpenseForm from "../form-modals/ExpenseForm";
+import StaffForm from "../form-modals/StaffForm";
 
 const FormModal = ({ table, type, id, data, title }) => {
   const [open, setopen] = useState(false);
@@ -43,6 +41,15 @@ const FormModal = ({ table, type, id, data, title }) => {
     sale: (type, data) => (
       <SaleForm type={type} data={data} setopen={setopen} />
     ),
+    expense: (type, data) => (
+      <ExpenseForm type={type} data={data} setopen={setopen} />
+    ),
+    staff: (type, data) => (
+      <StaffForm type={type} data={data} setopen={setopen} />
+    ),
+    supplier: (type, data) => (
+      <Supplier type={type} data={data} setopen={setopen} />
+    ),
   };
 
   const handleDelete = async () => {
@@ -54,6 +61,12 @@ const FormModal = ({ table, type, id, data, title }) => {
         : table === "purchase"
         ? await deletePurchase(id)
         : table === "sale"
+        ? await deleteSale(id)
+        : table === "expense"
+        ? await deleteSale(id)
+        : table === "staff"
+        ? await deleteSale(id)
+        : table === "supplier"
         ? await deleteSale(id)
         : null;
     console.log("response", response);

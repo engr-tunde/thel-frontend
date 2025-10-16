@@ -5,22 +5,7 @@ import FormModal from "../form/FormModal";
 import { IoIosCheckmark, IoMdAdd } from "react-icons/io";
 
 function SelectedRowTemplate(item, i) {
-  // const [actionOpen, setActionOpen] = useState(false);
-  // const [index, setindex] = useState(null);
-
-  // const handleActionClick = (i) => {
-  //   // setActionOpen(actionOpen === i ? null : i);
-  //   setActionOpen(!actionOpen);
-  // };
-  // // console.log("actionOpen", actionOpen);
-
-  // // useEffect(() => {
-  // //   if (index === i) {
-  // //     setActionOpen(true);
-  // //   } else {
-  // //     setActionOpen(false);
-  // //   }
-  // // }, [index]);
+ 
 
   return (
     <tr

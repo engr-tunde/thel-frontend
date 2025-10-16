@@ -23,9 +23,6 @@ const SaleFormInner = ({
   type,
   handleSubmit,
   data,
-  docText,
-  docError,
-  handleSetImage,
 }) => {
   const initialValues = addSaleValues(data);
   const validationSchema = validateAddSale();

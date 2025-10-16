@@ -4,6 +4,7 @@ import {
   ADD_PRODUCT,
   ADD_PURCHASE,
   ADD_SALE,
+  ADD_STAFF,
   CHECK_SESSION,
   DELETE_CATEGORY,
   DELETE_PRODUCT,
@@ -140,3 +141,28 @@ export const deleteSale = async (id) => {
   const result = await mutationRequest(`${DELETE_SALE}/${id}`, "delete");
   return result;
 };
+
+//  Sales
+export const addNewStaff = async (values) => {
+  const result = await mutationRequest(ADD_STAFF, "post", values);
+  return result;
+};
+// export const updateSale = async (id, values) => {
+//   const result = await mutationRequest(`${EDIT_SALE}/${id}`, "put", values);
+//   return result;
+// };
+// export const fetchAllSales = () => {
+//   const { data, error, loading, mutate } = useSWR(FETCH_ALL_SALES, fetcher);
+//   return { data, error, loading, mutate };
+// };
+// export const fetchSingleSale = (id) => {
+//   const { data, error, loading, mutate } = useSWR(
+//     `${FETCH_SINGLE_SALES}/${id}`,
+//     fetcher
+//   );
+//   return { data, error, loading, mutate };
+// };
+// export const deleteSale = async (id) => {
+//   const result = await mutationRequest(`${DELETE_SALE}/${id}`, "delete");
+//   return result;
+// };

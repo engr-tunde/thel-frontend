@@ -72,6 +72,51 @@ export const validateAddPurchase = () => {
 
   return validationSchema;
 };
+export const validateAddExpense = () => {
+  const validationSchema = yup.object({
+    expense_date: yup.string().required(" the date is missing"),
+    expense_category: yup.string().required("Reference number is missing"),
+    Warehouse: yup.string().required("Purchae status is missing"),
+    amount: yup
+      .number()
+      .required("How much in purchase currency rate"),
+    Account: yup.string().required("Payment status is missing"),
+    note: yup.string(),
+  });
+
+  return validationSchema;
+};
+export const validateAddStaff = () => {
+  const validationSchema = yup.object({
+    username: yup.string().required(" the date is missing"),
+    password: yup.string().required("Reference number is missing"),
+    email: yup.string().required("Purchae status is missing"),
+    phone_number: yup
+      .number()
+      .required("How much in purchase currency rate"),
+    company_name: yup.string().required("Payment status is missing"),
+    role: yup.string().required("Payment status is missing"),
+  });
+
+  return validationSchema;
+};
+
+export const validateAddSupplier = () => {
+  const validationSchema = yup.object({
+    name: yup.string().required(" the date is missing"),
+    company_name: yup.string().required("Reference number is missing"),
+    tax_number: yup.number().required("Purchae status is missing"),
+    opening_balance: yup.number().required("Suppliers name must be provided"),
+    email: yup.string().required("specify the selected product"),
+    phone_number: yup.string().required("Provide purchase quantity"),
+    whatsapp_number: yup.string().required("select currency"),
+    address: yup.string().required("select exchange rate"),
+    city: yup.string().required("Payment status is missing"),
+    state: yup.string().required("Payment status is missing"),
+    postal_code: yup.number().required("Payment status is missing"),
+    country: yup.string(),
+  });
+}
 
 export const validateStockCount = () => {
   const validationSchema = yup.object({

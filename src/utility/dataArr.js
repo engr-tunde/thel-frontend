@@ -61,6 +61,34 @@ export const sidebarData = [
       },
     ],
   },
+  {
+    title: "Expense",
+    icon: "FaShoppingBag",
+    // icon: "FaHouseUser",
+    link: "/expense",
+    children: [
+      {
+        title: "Expense List",
+        link: "/expense/expense-list",
+      },
+    ],
+  },
+  {
+    title: "Staff",
+    icon: "FaShoppingBag",
+    // icon: "FaHouseUser",
+    link: "/staff",
+    children: [
+      {
+        title: "Staff List",
+        link: "/staff/staff-list",
+      },
+      {
+        title: "Supplier List",
+        link: "/staff/supplier-list",
+      },
+    ],
+  },
 ];
 
 export const barcodeFormatArr = [

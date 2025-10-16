@@ -11,6 +11,9 @@ import PrintBarcodePage from "./pages/products/print-barcode.jsx";
 import AuthLayout from "./layouts/AuthLayout.jsx";
 import LoginPage from "./pages/auth/Login.jsx";
 import SaleListPage from "./pages/sale/index.jsx";
+import ExpenseListPage from "./pages/expense/index.jsx";
+import StaffListPage from "./pages/staff/index.jsx";
+import SupplierListPage from "./pages/staff/supplier.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -51,6 +54,9 @@ function App() {
             />
             <Route path="/products/category" element={<CategoryPage />} />
             <Route path="/sales/sale-list" element={<SaleListPage />} />
+            <Route path="/expense/expense-list" element={<ExpenseListPage />} />
+            <Route path="/staff/staff-list" element={<StaffListPage />} />
+            <Route path="/staff/supplier-list" element={<SupplierListPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

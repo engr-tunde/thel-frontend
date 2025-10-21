@@ -1,10 +1,10 @@
 import { FaRegEye, FaRegMoneyBillAlt } from "react-icons/fa";
 import { RiArrowDownSFill } from "react-icons/ri";
-import FormModal from "../form/FormModal";
 import { IoMdAdd } from "react-icons/io";
-import { useToggleOpen } from "../../utility/helpers";
+import FormModal from "../../form/FormModal";
+import { useToggleOpen } from "../../../utility/helpers";
 
-function ExpenseRowTemplate(item, i, openIndex, setOpenIndex) {
+function CustomerRowTemplate(item, i, openIndex, setOpenIndex) {
   const { isOpen, toggle, close, ref } = useToggleOpen(
     openIndex,
     setOpenIndex,
@@ -18,13 +18,27 @@ function ExpenseRowTemplate(item, i, openIndex, setOpenIndex) {
         i % 2 === 0 ? "bg-white" : "bg-[#f8f9fa]"
       }`}
     >
-      <td className="text-[rgb(177,117,115)] py-4">{item?.expense_date}</td>
-      <td className="table-cell text-start">{item?.expense_category}</td>
-      <td className="table-cell text-start w-[140px]">
-        {item?.warehouse}
+      <td className="p-4 pr-2 text-start">
+        <input type="checkbox" />
       </td>
-      <td className="table-cell text-start">{item?.amount}</td>
-      <td className="table-cell text-start">{item?.bank_account}</td>
+      <td className="text-[rgb(177,117,115)] py-4">{item?.name}</td>
+      <td className="table-cell text-start">{item?.email}</td>
+      <td className="table-cell text-start w-[140px]">
+        {item?.phone}
+      </td>
+      <td className="table-cell text-start w-[140px]">
+        {item?.vat_number}
+      </td>
+      <td className="table-cell text-start w-[140px]">
+        {item?.opening_balance}
+      </td>
+      <td className="table-cell text-start w-[140px]">
+        {item?.initial_deposit}
+      </td>
+      <td className="table-cell text-start w-[140px]">
+        {item?.country}
+      </td>
+
       <td className="table-cell">
         <div className="relative" ref={ref}>
           <button
@@ -45,7 +59,7 @@ function ExpenseRowTemplate(item, i, openIndex, setOpenIndex) {
               </div>
               <div className="flex items-center gap-1">
                 <FormModal
-                  table="expense"
+                  table="customer"
                   id={item?._id}
                   type="update"
                   title="Edit"
@@ -56,7 +70,7 @@ function ExpenseRowTemplate(item, i, openIndex, setOpenIndex) {
                 <FormModal
                   type="delete"
                   id={item?._id}
-                  table="expense"
+                  table="customer"
                   title="Delete"
                 />
               </div>
@@ -76,4 +90,4 @@ function ExpenseRowTemplate(item, i, openIndex, setOpenIndex) {
   );
 }
 
-export default ExpenseRowTemplate;
+export default CustomerRowTemplate;

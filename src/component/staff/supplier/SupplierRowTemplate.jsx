@@ -18,11 +18,17 @@ function SupplierRowTemplate(item, i, openIndex, setOpenIndex) {
         i % 2 === 0 ? "bg-white" : "bg-[#f8f9fa]"
       }`}
     >
-      <td className="text-[rgb(177,117,115)] py-4">{item?.purchase_date}</td>
-      <td className="table-cell text-start">{item?.product}</td>
-      <td className="table-cell text-start w-[140px]">
-        {item?.reference_number}
+      <td className="p-4 pr-2 text-start">
+        <input type="checkbox" />
       </td>
+      <td className="text-[rgb(177,117,115)] py-4">{item?.name}</td>
+      <td className="table-cell text-start">{item?.company_name}</td>
+      <td className="table-cell text-start w-[140px]">{item?.tax_number}</td>
+      <td className="table-cell text-start w-[140px]">{item?.balance_owed}</td>
+      <td className="table-cell text-start w-[140px]">{item?.address}</td>
+      <td className="table-cell text-start w-[140px]">{item?.city}</td>
+      <td className="table-cell text-start w-[140px]">{item?.state}</td>
+      <td className="table-cell text-start w-[140px]">{item?.country}</td>
 
       <td className="table-cell">
         <div className="relative" ref={ref}>

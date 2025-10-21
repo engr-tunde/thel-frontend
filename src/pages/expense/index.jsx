@@ -6,7 +6,7 @@ import { RiChatDeleteLine } from "react-icons/ri";
 import { useState } from "react";
 import FormModal from "../../component/form/FormModal";
 import Table from "../../component/global/Table";
-import { fetchAllPurchases } from "../../api";
+import { fetchAllExpense } from "../../api";
 import Loader from "../../component/global/Loader";
 import { expenseTableColumn, ViewExpense } from "../../data/expense";
 import ExpenseRowTemplate from "../../component/expense/ExpenseRowTemplate";
@@ -14,7 +14,7 @@ import ExpenseRowTemplate from "../../component/expense/ExpenseRowTemplate";
 const ExpenseListPage = () => {
   const [viewExpense, setviewExpense] = useState(false);
 
-  const { data, loading, error, mutate } = fetchAllPurchases();
+  const { data, loading, error, mutate } = fetchAllExpense();
 
   // handle view purchases
   const handleViewExpense = () => {

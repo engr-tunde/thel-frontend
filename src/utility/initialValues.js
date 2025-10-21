@@ -68,23 +68,37 @@ export const addExpenseValues = (data) => {
   const initialValues = {
     expense_date: data ? data.expense_date : "",
     expense_category: data ? data.expense_category : "",
-    Warehouse: data ? data.Warehouse : "",
+    warehouse: data ? data.warehouse : "",
     amount: data ? data.amount : "",
-    Account: data ? data.Account : "",
+    bank_account: data ? data.bank_account : "",
     // expense_document: data ? data.expense_document : "",
     note: data ? data.note : "",
     
   };
   return initialValues;
 };
+
+export const addExpenseCategoryValues = (data) => {
+  const initialValues = {
+    category: data ? data.category : "",
+    category_slug: data ? data.category_slug : "",
+  };
+  return initialValues;
+};
+
+
 export const addStaffValues = (data) => {
   const initialValues = {
-    username: data ? data.username : "",
-    password: data ? data.password : "",
+    name: data ? data.name : "",
     email: data ? data.email : "",
-    phone_number: data ? data.phone_number : "",
-    company_name: data ? data.company_name : "",
+    username: data ? data.username : "",
     role: data ? data.role : "",
+    department: data ? data.department : "",
+    phone_number: data ? data.phone_number : "",
+    address: data ? data.address : "",
+    city: data ? data.city : "",
+    country: data ? data.country : "",
+    password: data ? data.password : "",
     
   };
   return initialValues;
@@ -93,16 +107,32 @@ export const addStaffValues = (data) => {
 export const addSupplierValues = (data) => {
   const initialValues = {
     name: data ? data.name : "",
-    company_name: data ? data.company_name : "",
-    tax_number: data ? data.tax_number : "",
-    opening_balance: data ? data.opening_balance : "",
     email: data ? data.email : "",
-    phone_number: data ? data.quantity : "",
+    phone: data ? data.phone : "",
     whatsapp_number: data ? data.whatsapp_number : "",
+    vat_number: data ? data.vat_number : "",
+    opening_balance: data ? data.opening_balance : "",
+    initial_deposit: data ? data.initial_deposit : "",
     address: data ? data.address : "",
     city: data ? data.city : "",
     state: data ? data.state : "",
-    postal_code: data ? data.postal_code : 0,
+    country: data ? data.country : "",
+  };
+  return initialValues;
+};
+
+export const addCustomerValues = (data) => {
+  const initialValues = {
+    name: data ? data.name : "",
+    email: data ? data.email : "",
+    phone: data ? data.phone : "",
+    whatsapp_number: data ? data.whatsapp_number : "",
+    vat_number: data ? data.vat_number : "",
+    opening_balance: data ? data.opening_balance : "",
+    initial_deposit: data ? data.initial_deposit : "",
+    address: data ? data.address : "",
+    city: data ? data.city : "",
+    state: data ? data.state : "",
     country: data ? data.country : "",
   };
   return initialValues;

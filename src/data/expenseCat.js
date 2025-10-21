@@ -1,27 +1,13 @@
-export const expenseTableColumn = [
-  {
-    accessor: "Date",
-    title: "Date",
-    className: "font-semibold",
-  },
+export const expenseCategoryTableColumn = [
+ 
   {
     accessor: "Category",
     title: "Category",
     className: "font-semibold",
   },
   {
-    accessor: "Warehouse",
-    title: "Warehouse",
-    className: "font-semibold",
-  },
-  {
-    accessor: "Amount",
-    title: "Amount",
-    className: "font-semibold",
-  },
-  {
-    accessor: "Bank Account",
-    title: "Bank Account",
+    accessor: "Category Slug",
+    title: "Category Slug",
     className: "font-semibold",
   },
   {
@@ -32,11 +18,30 @@ export const expenseTableColumn = [
 ];
 
 export const warehouse = [
-  "Shop 1", "Shop 2", "Shop 3"
+  {
+    label: "SHOP 1",
+  },
+  {
+    label: "SHOP 2",
+  },
+  {
+    label: "Deposite",
+  },
 ];
 
-export const expenseCategory = ["Electric Bill (Electric Bill)"];
-export const bankAccount = ["sa [1212]", "Cash", "Bank"];
+export const supplier = [
+  {
+    label: "Abdullagi(Global Tech)",
+  },
+  {
+    label: "Rahmatullahi(Samsung)",
+  },
+  {
+    label: "Tomiwa(Iphone)",
+  },
+];
+
+export const purchaseStatus = ["Received", "Partial", "Pending", "Ordered"];
 
 export const currencies = ["USD", "CAD", "GBP", "Euro", "NGN", "CNY"];
 
@@ -61,7 +66,7 @@ export const orderTax = [
 
 export const paymentStatus = ["Due", "Patial", "Paid"];
 
-export const ViewExpense = [
+export const ViewExpenseCat = [
   {
     item: "Date",
   },

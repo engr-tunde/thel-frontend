@@ -13,7 +13,9 @@ import AppTextAreaField from "../form/AppTextAreaField";
 import { addExpenseValues } from "../../utility/initialValues";
 import { validateAddExpense } from "../../utility/validations";
 import AppFileField from "../form/AppFileField";
-import { account, expenseCategory, warehouse } from "../../data/expense";
+import { bankAccount, expenseCategory, warehouse } from "../../data/expense";
+import { fetchAllExpenseCategory } from "../../api";
+import { useEffect, useState } from "react";
 
 const ExpenseFormInner = ({
   type,
@@ -25,6 +27,23 @@ const ExpenseFormInner = ({
 }) => {
   const initialValues = addExpenseValues(data);
   const validationSchema = validateAddExpense();
+
+  const { data:expenseCatData } = fetchAllExpenseCategory();
+  console.log("expenseCatData", expenseCatData);
+
+   const [cats, setcats] = useState();
+    useEffect(() => {
+      if (expenseCatData) {
+        let dataArr = expenseCatData?.data;
+        let newArr = [];
+        if (dataArr?.length) {
+          for (let ele of dataArr) {
+            newArr.push(ele?.category);
+          }
+          setcats(newArr);
+        }
+      }
+    }, [expenseCatData]);
 
   return (
     <CustomFormik
@@ -53,22 +72,22 @@ const ExpenseFormInner = ({
               <label htmlFor="" className="text-[#785873] text-sm">
                 Expense Category
               </label>
-              <AppSelectField
-                name="expense_category*"
-                array={expenseCategory}
+              { cats && <AppSelectField
+                name="expense_category"
+                array={cats}
                 title="Select Expense Category"
                 defaultValue={data?.expense_category}
-              />
+              />}
             </div>
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
                 Warehouse
               </label>
               <AppSelectField
-                name="Warehouse*"
+                name="warehouse"
                 array={warehouse}
                 title="Select Warehouse"
-                defaultValue={data?.Warehouse}
+                defaultValue={data?.warehouse}
               />
             </div>
             <div className="flex flex-col gap-1 w-full">
@@ -80,13 +99,13 @@ const ExpenseFormInner = ({
 
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
-                Account
+                Bank Account
               </label>
               <AppSelectField
-                name="Account *"
-                array={account}
+                name="bank_account"
+                array={bankAccount}
                 title="Select Account"
-                defaultValue={data?.account}
+                defaultValue={data?.bank_account}
               />
             </div>
 

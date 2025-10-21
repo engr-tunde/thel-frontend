@@ -1,11 +1,13 @@
+
 import {
-  addNewSupplier,
-  updateSupplier,
+  addNewCustomer,
+  updateCustomer,
 } from "../../api";
 import { errorMessage, successMessage } from "../../utility/helpers";
-import SupplierFormInner from "./SupplierFormInner";
+import CustomerFormInner from "./CustomerFormInner";
 
-const SupplierForm = ({ type, data, setopen }) => {
+const CustomerForm = ({ type, data, setopen }) => {
+
 
   const handleSubmit = async (values, { setSubmitting }) => {
     // setSubmitting(false);
@@ -13,8 +15,8 @@ const SupplierForm = ({ type, data, setopen }) => {
 
     const response =
       type === "create"
-        ? await addNewSupplier(values)
-        : await updateSupplier(values, data?._id);
+        ? await addNewCustomer(values)
+        : await updateCustomer(values, data?._id);
     console.log("response", response);
     if (response?.status?.toString()?.includes("20")) {
       successMessage(response?.data?.message);
@@ -28,15 +30,15 @@ const SupplierForm = ({ type, data, setopen }) => {
   return (
     <>
       {type === "update" ? (
-        <SupplierFormInner
+        <CustomerFormInner
           handleSubmit={handleSubmit}
           data={data}
           type={type}
         />
       ) : (
-        <SupplierFormInner handleSubmit={handleSubmit} type={type} />
+        <CustomerFormInner handleSubmit={handleSubmit} type={type} />
       )}
     </>
   );
 };
-export default SupplierForm;
+export default CustomerForm;

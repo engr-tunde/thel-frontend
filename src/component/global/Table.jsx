@@ -10,7 +10,7 @@ const Table = ({
 }) => {
   const [openIndex, setOpenIndex] = useState(null);
   return (
-    <table className="overflow-x-auto max-w-full">
+    <table className="overflow-x-auto w-full">
       <thead
         className={
           view

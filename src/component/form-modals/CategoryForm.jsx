@@ -7,6 +7,7 @@ const CategoryForm = ({ type, data, setopen }) => {
   const [image, setimage] = useState();
   const [imageError, setimageError] = useState("");
   const [imageText, setimageText] = useState("");
+  
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setimage(file);

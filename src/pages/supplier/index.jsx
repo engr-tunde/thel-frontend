@@ -6,19 +6,20 @@ import { RiChatDeleteLine } from "react-icons/ri";
 import { useState } from "react";
 import FormModal from "../../component/form/FormModal";
 import Table from "../../component/global/Table";
-import { fetchAllStaff } from "../../api";
 import Loader from "../../component/global/Loader";
-import { staffListTableColumn, ViewStaff } from "../../data/staff";
-import StaffRowTemplate from "../../component/staff/StaffRowTemplate";
+import { supplierTableColumn, ViewSupplier } from "../../data/supplier";
+import SupplierRowTemplate from "../../component/staff/supplier/SupplierRowTemplate";
+import { fetchAllSupplier } from "../../api";
 
-const StaffListPage = () => {
-  const [viewStaff, setviewStaff] = useState(false);
+const SupplierListPage = () => {
+  const [viewSupplier, setviewSupplier] = useState(false);
 
-  const { data, loading, error, mutate } = fetchAllStaff();
+  const { data, loading, error, mutate } = fetchAllSupplier();
+  console.log("data", data);
 
   // handle view purchases
-  const handleViewStaff = () => {
-    setviewStaff(!viewStaff);
+  const handleViewSupplier = () => {
+    setviewSupplier(!viewSupplier);
   };
 
   return (
@@ -26,7 +27,7 @@ const StaffListPage = () => {
       {/* main first section */}
       <div className="flex flex-col">
         <div className="flex gap-2 pb-5">
-          <FormModal type="create" table="staff" title="Add Staff" />
+          <FormModal type="create" table="supplier" title="Add Supplier" />
         </div>
       </div>
       {/* main second section */}
@@ -60,20 +61,20 @@ const StaffListPage = () => {
             <RiChatDeleteLine className="text-white " />
           </div>
           <div
-            onClick={handleViewStaff}
+            onClick={handleViewSupplier}
             className="flex item-center justify-center p-3 bg-[rgb(124,92,196)] hover:bg-[rgb(113,122,131)] cursor-pointer rounded-l-s rounded-r-md"
           >
             <MdOutlineVisibility className="text-white " />
           </div>
           <div
-            onMouseLeave={handleViewStaff}
+            onMouseLeave={handleViewSupplier}
             className={
-              viewStaff
+              viewSupplier
                 ? "absolute z-50 bg-blue-700 text-white w-[130px] text-sm top-[43px] left-[140px] rounded-sm flex flex-col gap-2 justify-center p-3"
                 : "hidden"
             }
           >
-            {ViewStaff.map((item, i) => (
+            {ViewSupplier.map((item, i) => (
               <div key={i}>{item.item}</div>
             ))}
           </div>
@@ -82,9 +83,9 @@ const StaffListPage = () => {
       {/* main table */}
       {data ? (
         <Table
-          tableColumn={staffListTableColumn}
+          tableColumn={supplierTableColumn}
           rowData={data?.data}
-          rowTemplate={StaffRowTemplate}
+          rowTemplate={SupplierRowTemplate}
           checkAll={true}
         />
       ) : loading ? (
@@ -94,4 +95,4 @@ const StaffListPage = () => {
   );
 };
 
-export default StaffListPage;
+export default SupplierListPage;

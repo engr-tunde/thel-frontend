@@ -43,8 +43,8 @@ const CategoryFormInner = ({
       <div className="w-full lg:w-[80%] mx-auto flex flex-col gap-5 p-5">
         <div className="">
           {type == "create"
-            ? "Add a new catageory"
-            : `Edit catageory (${data?.category})`}
+            ? "Add a new category"
+            : `Edit category (${data?.category})`}
         </div>
 
         <p className="text-gray-500 mb-3">

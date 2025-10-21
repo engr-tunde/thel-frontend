@@ -3,15 +3,11 @@ import AppInputField from "../form/AppInputField";
 import CustomFormik from "../global/CustomFormik";
 import AppSubmitButton from "../form/AppSubmitButton";
 import { addSupplierValues } from "../../utility/initialValues";
-import { validateAddPurchase, validateAddSupplier } from "../../utility/validations";
-import AppFileField from "../form/AppFileField";
+import { validateAddSupplier } from "../../utility/validations";
 const SupplierFormInner = ({
   type,
   handleSubmit,
   data,
-  docText,
-  docError,
-  handleSetImage,
 }) => {
   const initialValues = addSupplierValues(data);
   const validationSchema = validateAddSupplier();
@@ -40,18 +36,6 @@ const SupplierFormInner = ({
               />
             </div>
             <div className="flex flex-col gap-1 w-full">
-              <label htmlFor="" className="text-gray-400 text-sm">
-                Attach Document
-              </label>
-              <AppFileField
-                label="supplier document"
-                name="supplier_document"
-                nameText={docText}
-                error={docError}
-                handleChange={handleSetImage}
-              />
-            </div>
-            <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
                 Company Name
               </label>
@@ -71,11 +55,11 @@ const SupplierFormInner = ({
             </div>
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
-                Opening balance (Due)
+                balance owed
               </label>
               <AppInputField
-                name="opening_balance"
-                defaultValue={data?.opening_balance}
+                name="balance_owed"
+                defaultValue={data?.balance_owed}
               />
             </div>
             <div className="flex flex-col gap-1 w-full">
@@ -90,11 +74,11 @@ const SupplierFormInner = ({
             </div>
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
-                Phone Number *
+                Phone *
               </label>
               <AppInputField
-                name="phone_number"
-                defaultValue={data?.phone_number}
+                name="phone"
+                defaultValue={data?.phone}
               />
             </div>
             <div className="flex flex-col gap-1 w-full">
@@ -124,15 +108,7 @@ const SupplierFormInner = ({
               </label>
               <AppInputField name="state" defaultValue={data?.state} />
             </div>
-            <div className="flex flex-col gap-1 w-full">
-              <label htmlFor="" className="text-[#785873] text-sm">
-                Postal Code
-              </label>
-              <AppInputField
-                name="postal_code"
-                defaultValue={data?.postal_code}
-              />
-            </div>
+            
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
                 Country

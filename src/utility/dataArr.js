@@ -71,6 +71,10 @@ export const sidebarData = [
         title: "Expense List",
         link: "/expense/expense-list",
       },
+      {
+        title: "Expense category",
+        link: "/expense/expense-category",
+      },
     ],
   },
   {
@@ -83,9 +87,53 @@ export const sidebarData = [
         title: "Staff List",
         link: "/staff/staff-list",
       },
+    ],
+  },
+  {
+    title: "Supplier",
+    icon: "FaShoppingBag",
+    // icon: "FaHouseUser",
+    link: "/supplier",
+    children: [
       {
         title: "Supplier List",
-        link: "/staff/supplier-list",
+        link: "/supplier/supplier-list",
+      },
+    ],
+  },
+  {
+    title: "Customer",
+    icon: "FaShoppingBag",
+    // icon: "FaHouseUser",
+    link: "/customer",
+    children: [
+      {
+        title: "Customer List",
+        link: "/customer/customer-list",
+      },
+    ],
+  },
+  {
+    title: "Accounting",
+    icon: "FaShoppingBag",
+    // icon: "FaHouseUser",
+    link: "/accounting",
+    children: [
+      {
+        title: "Account List",
+        link: "/account/account-list",
+      },
+    ],
+  },
+  {
+    title: "Settings",
+    icon: "FaShoppingBag",
+    // icon: "FaHouseUser",
+    link: "/setting",
+    children: [
+      {
+        title: "Warehouse",
+        link: "/setting/warehouse",
       },
     ],
   },

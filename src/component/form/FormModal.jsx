@@ -6,9 +6,14 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import CategoryForm from "../form-modals/CategoryForm";
 import {
   deleteCategory,
+  deleteCustomer,
+  deleteExpense,
+  deleteExpenseCategory,
   deleteProduct,
   deletePurchase,
   deleteSale,
+  deleteStaff,
+  deleteSupplier,
 } from "../../api";
 import { errorMessage, successMessage } from "../../utility/helpers";
 import ProductForm from "../form-modals/ProductForm";
@@ -16,6 +21,9 @@ import PurchaseForm from "../form-modals/PurchaseForm";
 import SaleForm from "../form-modals/SaleForm";
 import ExpenseForm from "../form-modals/ExpenseForm";
 import StaffForm from "../form-modals/StaffForm";
+import SupplierForm from "../form-modals/SupplierForm";
+import CustomerForm from "../form-modals/CustomerForm";
+import ExpenseCatForm from "../form-modals/ExpenseCatForm";
 
 const FormModal = ({ table, type, id, data, title }) => {
   const [open, setopen] = useState(false);
@@ -44,11 +52,17 @@ const FormModal = ({ table, type, id, data, title }) => {
     expense: (type, data) => (
       <ExpenseForm type={type} data={data} setopen={setopen} />
     ),
+    expenseCategory: (type, data) => (
+      <ExpenseCatForm type={type} data={data} setopen={setopen} />
+    ),
     staff: (type, data) => (
       <StaffForm type={type} data={data} setopen={setopen} />
     ),
     supplier: (type, data) => (
-      <Supplier type={type} data={data} setopen={setopen} />
+      <SupplierForm type={type} data={data} setopen={setopen} />
+    ),
+    customer: (type, data) => (
+      <CustomerForm type={type} data={data} setopen={setopen} />
     ),
   };
 
@@ -61,13 +75,17 @@ const FormModal = ({ table, type, id, data, title }) => {
         : table === "purchase"
         ? await deletePurchase(id)
         : table === "sale"
-        ? await deleteSale(id)
+        ? await deleteExpense(id)
         : table === "expense"
-        ? await deleteSale(id)
+        ? await deleteExpense(id)
+        : table === "expense_category"
+        ? await deleteExpenseCategory(id)
         : table === "staff"
-        ? await deleteSale(id)
+        ? await deleteStaff(id)
         : table === "supplier"
-        ? await deleteSale(id)
+        ? await deleteSupplier(id)
+        : table === "customer"
+        ? await deleteCustomer(id)
         : null;
     console.log("response", response);
     if (response?.status?.toString()?.includes("20")) {

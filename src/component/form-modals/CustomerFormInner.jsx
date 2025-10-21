@@ -1,14 +1,16 @@
+
 import AppInputField from "../form/AppInputField";
 import CustomFormik from "../global/CustomFormik";
 import AppSubmitButton from "../form/AppSubmitButton";
-import AppSelectField from "../form/AppSelectField";
-import { addStaffValues } from "../../utility/initialValues";
-import { validateAddStaff } from "../../utility/validations";
-import { department, role } from "../../data/staff";
-
-const StaffFormInner = ({ type, handleSubmit, data }) => {
-  const initialValues = addStaffValues(data);
-  const validationSchema = validateAddStaff();
+import { addCustomerValues } from "../../utility/initialValues";
+import { validateAddCustomer } from "../../utility/validations";
+const CustomerFormInner = ({
+  type,
+  handleSubmit,
+  data,
+}) => {
+  const initialValues = addCustomerValues(data);
+  const validationSchema = validateAddCustomer();
 
   return (
     <CustomFormik
@@ -19,11 +21,10 @@ const StaffFormInner = ({ type, handleSubmit, data }) => {
       <div className="w-full flex flex-col gap-10 p-8">
         <div className="w-full flex flex-col gap-5 p-5 border-[1px] border-[rgb(228,230,252)] rounded-sm">
           <div className="flex flex-col gap-4">
-            <div>Add Staff</div>
+            <div>Add Customer</div>
             <div>The field labels marked with * are required input fields.</div>
           </div>
-
-          <div className="grid grid-cols-2 gap-3 justify-center">
+          <div className="grid grid-cols-3 gap-3 justify-center">
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
                 Name *
@@ -34,6 +35,7 @@ const StaffFormInner = ({ type, handleSubmit, data }) => {
                 defaultValue={data?.name}
               />
             </div>
+
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
                 Email *
@@ -46,87 +48,80 @@ const StaffFormInner = ({ type, handleSubmit, data }) => {
             </div>
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
-                UserName *
+                Phone *
               </label>
               <AppInputField
-                name="username"
-                type="text"
-                defaultValue={data?.username}
+                name="phone"
+                defaultValue={data?.phone}
               />
             </div>
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
-                Role *
-              </label>
-              <AppSelectField
-                name="role"
-                array={role}
-                title="Select role"
-                defaultValue={data?.role}
-              />
-            </div>
-            <div className="flex flex-col gap-1 w-full">
-              <label htmlFor="" className="text-[#785873] text-sm">
-                Department *
-              </label>
-              <AppSelectField
-                name="department"
-                array={department}
-                title="Select role"
-                defaultValue={data?.role}
-              />
-            </div>
-            <div className="flex flex-col gap-1 w-full">
-              <label htmlFor="" className="text-[#785873] text-sm">
-                Phone Number *
+                WhatsApp Number
               </label>
               <AppInputField
-                name="phone_number"
-                type="number"
-                defaultValue={data?.phone_number}
+                name="whatsapp_number"
+                defaultValue={data?.whatsapp_number}
               />
             </div>
+           
+            <div className="flex flex-col gap-1 w-full">
+              <label htmlFor="" className="text-[#785873] text-sm">
+                VAT Number
+              </label>
+              <AppInputField
+                name="vat_number"
+                defaultValue={data?.vat_number}
+              />
+            </div>
+            <div className="flex flex-col gap-1 w-full">
+              <label htmlFor="" className="text-[#785873] text-sm">
+                Opening balance
+              </label>
+              <AppInputField
+                name="opening_balance"
+                defaultValue={data?.opening_balance}
+              />
+            </div>
+            <div className="flex flex-col gap-1 w-full">
+              <label htmlFor="" className="text-[#785873] text-sm">
+                Initial deposit
+              </label>
+              <AppInputField
+                name="initial_deposit"
+                defaultValue={data?.initial_deposit}
+              />
+            </div>
+            
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
                 Address *
               </label>
-              <AppInputField
-                name="address"
-                defaultValue={data?.address}
-              />
+              <AppInputField name="address" defaultValue={data?.address} />
             </div>
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
                 City *
               </label>
-              <AppInputField
-                name="city"
-                defaultValue={data?.city}
-              />
+              <AppInputField name="city" defaultValue={data?.city} />
             </div>
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
-                Country *
+                State
               </label>
-              <AppInputField
-                name="country"
-                defaultValue={data?.country}
-              />
+              <AppInputField name="state" defaultValue={data?.state} />
             </div>
+            
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">
-                Password *
+                Country
               </label>
-              <AppInputField
-                name="password"
-                type="password"
-                defaultValue={data?.password}
-              />
+              <AppInputField name="country" defaultValue={data?.country} />
             </div>
           </div>
 
           <AppSubmitButton
-            title={type == "create" ? "Add Staff" : "Update Sale"}
+            title={type == "create" ? "Add Customer" : "Update Customer"}
             // disabled={disabled}
           />
         </div>
@@ -135,4 +130,4 @@ const StaffFormInner = ({ type, handleSubmit, data }) => {
   );
 };
 
-export default StaffFormInner;
+export default CustomerFormInner;

@@ -18,7 +18,6 @@ const PurchaseForm = ({ type, data, setopen }) => {
   const handleSubmit = async (values, { setSubmitting }) => {
     // setSubmitting(false);
     console.log("values", values);
-    // const payload = {...values, total_before_discount: 500, grand_total:58585}
     const formData = new FormData();
     formData.append("purchase_date", values.purchase_date);
     formData.append("reference_number", values.reference_number);

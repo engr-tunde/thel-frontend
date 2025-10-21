@@ -1,17 +1,42 @@
 export const supplierTableColumn = [
   {
-    accessor: "Image",
-    title: "Image",
+    accessor: "Name",
+    title: "Name",
     className: "font-semibold",
   },
   {
-    accessor: "Supplier Details",
-    title: "Supplier Details",
+    accessor: "Company Name",
+    title: "Company Name",
     className: "font-semibold",
   },
   {
-    accessor: "Total Due",
-    title: "Total Due",
+    accessor: "VAT",
+    title: "VAT",
+    className: "font-semibold",
+  },
+  {
+    accessor: "Balanced Owed",
+    title: "Balanced Owed",
+    className: "font-semibold",
+  },
+  {
+    accessor: "Address",
+    title: "Address",
+    className: "font-semibold",
+  },
+  {
+    accessor: "City",
+    title: "City",
+    className: "font-semibold",
+  },
+  {
+    accessor: "State",
+    title: "State",
+    className: "font-semibold",
+  },
+  {
+    accessor: "Country",
+    title: "Country",
     className: "font-semibold",
   },
   {

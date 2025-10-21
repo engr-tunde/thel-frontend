@@ -1,4 +1,5 @@
 export const role = ["admin", "owner", "staff"];
+export const department = ["admin", "owner", "staff"];
 
 export const staffListTableColumn = [
   {
@@ -12,11 +13,6 @@ export const staffListTableColumn = [
     className: "font-semibold",
   },
   {
-    accessor: "Company Name",
-    title: "Company Name",
-    className: "font-semibold",
-  },
-  {
     accessor: "Phone Number",
     title: "Phone Number",
     className: "font-semibold",
@@ -24,12 +20,6 @@ export const staffListTableColumn = [
   {
     accessor: "Role",
     title: "Role",
-    className: "font-semibold",
-  },
-
-  {
-    accessor: "Status",
-    title: "Status",
     className: "font-semibold",
   },
   {

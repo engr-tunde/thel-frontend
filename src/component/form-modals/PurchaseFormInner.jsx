@@ -13,8 +13,6 @@ import AppTextAreaField from "../form/AppTextAreaField";
 import { addPurchaseValues } from "../../utility/initialValues";
 import { validateAddPurchase } from "../../utility/validations";
 import AppFileField from "../form/AppFileField";
-import { fetchAllProducts } from "../../api";
-import { useEffect, useState } from "react";
 
 const PurchaseFormInner = ({
   type,

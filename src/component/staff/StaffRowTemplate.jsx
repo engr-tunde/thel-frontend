@@ -18,18 +18,13 @@ function StaffRowTemplate(item, i, openIndex, setOpenIndex) {
         i % 2 === 0 ? "bg-white" : "bg-[#f8f9fa]"
       }`}
     >
+      <td className="p-4 pr-2 text-start">
+        <input type="checkbox" />
+      </td>
       <td className="text-[rgb(177,117,115)] py-4">{item?.username}</td>
-      <td className="table-cell text-start">{item?.password}</td>
       <td className="table-cell text-start">{item?.email}</td>
       <td className="table-cell text-start">{item?.phone_number}</td>
-      <td className="table-cell text-start">{item?.company_name}</td>
       <td className="table-cell text-start">{item?.role}</td>
-      <td className="table-cell text-start">
-        <div className="text-white bg-[rgb(22,211,154)] rounded-sm w-[50px] px-[3px] text-[11px]">
-          active
-        </div>
-      </td>
-
       <td className="table-cell">
         <div className="relative" ref={ref}>
           <button

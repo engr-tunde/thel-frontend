@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { errorMessage, successMessage } from "../../utility/helpers";
 import ExpenseFormInner from "./ExpenseFormInner";
+import { addNewExpense } from "../../api";
 
 const ExpenseForm = ({ type, data, setopen }) => {
   const [docText, setdocText] = useState("");
@@ -15,15 +16,15 @@ const ExpenseForm = ({ type, data, setopen }) => {
   };
 
   const handleSubmit = async (values, { setSubmitting }) => {
+    console.log("this is working");
     // setSubmitting(false);
     console.log("values", values);
-    // const payload = {...values, total_before_discount: 500, grand_total:58585}
     const formData = new FormData();
     formData.append("expense_date", values.expense_date);
     formData.append("expense_category", values.expense_category);
-    formData.append("Warehouse", values.Warehouse);
+    formData.append("warehouse", values.warehouse);
     formData.append("amount", values.amount);
-    formData.append("Account", values.Account);
+    formData.append("bank_account", values.bank_account);
     formData.append("note", values.note);
     formData.append("expense_document", expense_document);
 

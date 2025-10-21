@@ -1,10 +1,5 @@
-import { useState } from "react";
-// import Table from "/global/Table";
-// import { transactionData } from "../../utility/dataArr";
-import Table from "../global/Table";
 
 export default function RecentTransaction() {
-  const [activeTab, setActiveTab] = useState("Sale");
 
   const tableConfigs = {
     Sale: {
@@ -74,8 +69,6 @@ export default function RecentTransaction() {
       ),
     },
   };
-
-  // const tabs = Object.keys(transactionData);
 
   return <div className="flex w-full"></div>;
 }

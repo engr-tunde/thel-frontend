@@ -13,9 +13,9 @@ import LoginPage from "./pages/auth/Login.jsx";
 import SaleListPage from "./pages/sale/index.jsx";
 import ExpenseListPage from "./pages/expense/index.jsx";
 import StaffListPage from "./pages/staff/index.jsx";
-import SupplierListPage from "./pages/staff/supplier.jsx";
 import CustomerListPage from "./pages/customer/index.jsx";
 import ExpenseCategoryListPage from "./pages/expense/expenseCategory.jsx";
+import SupplierListPage from "./pages/supplier/index.jsx";
 
 function App() {
   const [count, setCount] = useState(0);

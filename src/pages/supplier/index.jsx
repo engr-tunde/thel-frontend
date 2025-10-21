@@ -15,7 +15,6 @@ const SupplierListPage = () => {
   const [viewSupplier, setviewSupplier] = useState(false);
 
   const { data, loading, error, mutate } = fetchAllSupplier();
-  console.log("data", data);
 
   // handle view purchases
   const handleViewSupplier = () => {

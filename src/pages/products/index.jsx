@@ -150,6 +150,7 @@ const ProductPageList = () => {
             <Table
               tableColumn={productTableColumn}
               rowData={data?.data}
+              // rowData={data?.data?.slice(0,3)}
               rowTemplate={ProductRowTemplate}
               checkAll={true}
             />

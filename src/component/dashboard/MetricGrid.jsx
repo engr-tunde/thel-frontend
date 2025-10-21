@@ -2,25 +2,25 @@ const metrics = [
   {
     label: "Revenue",
     value: "3757.16",
-    color: "bg-green-100",
+    color: "text-green-500",
     icon: "💰",
   },
   {
     label: "Sale Return",
     value: "0.00",
-    color: "bg-red-100",
+    color: "text-red-500",
     icon: "↩️",
   },
   {
     label: "Purchase Return",
     value: "0.00",
-    color: "bg-yellow-100",
+    color: "text-yellow-500",
     icon: "🔄",
   },
   {
     label: "Profit",
     value: "956.40",
-    color: "bg-blue-100",
+    color: "text-blue-500",
     icon: "📈",
   },
 ];
@@ -31,15 +31,16 @@ export default function MetricsGrid() {
       {metrics.map((metric) => (
         <div
           key={metric.label}
-          className={`p-4 ${metric.color} flex items-center  gap-6`}
-          style={{ boxShadow: "3px 3px 4px #b1b1b1b3" }}
+          // className={`p-4 ${metric.color} flex items-center  gap-6`}
+          className={`px-4 py-6 flex items-center  gap-6 border-[1px] border-[#b1b1b15d] rounded-md`}
+          style={{ boxShadow: "2px 2px 6px #b1b1b137" }}
         >
           <div className="text-3xl">{metric.icon}</div>
           <div>
-            <div className="text-2xl font-semibold text-gray-800">
+            <div className="text-lg font-medium text-gray-800">
               {metric.value}
             </div>
-            <div className="text-[18px] text-gray-600">{metric.label}</div>
+            <div className={`text-[16px] ${metric.color}`}>{metric.label}</div>
           </div>
         </div>
       ))}

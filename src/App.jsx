@@ -16,6 +16,10 @@ import StaffListPage from "./pages/staff/index.jsx";
 import CustomerListPage from "./pages/customer/index.jsx";
 import ExpenseCategoryListPage from "./pages/expense/expenseCategory.jsx";
 import SupplierListPage from "./pages/supplier/index.jsx";
+import WarehouseListPage from "./pages/warehouse/index.jsx";
+import AccountListPage from "./pages/account/index.jsx";
+import { PosPage } from "./pages/sale/pospage.jsx";
+import PosPageLayout from "./layouts/PosPageLayout.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -56,11 +60,27 @@ function App() {
             />
             <Route path="/products/category" element={<CategoryPage />} />
             <Route path="/sales/sale-list" element={<SaleListPage />} />
+
             <Route path="/expense/expense-list" element={<ExpenseListPage />} />
-            <Route path="/expense/expense-category" element={<ExpenseCategoryListPage />} />
+            <Route
+              path="/expense/expense-category"
+              element={<ExpenseCategoryListPage />}
+            />
             <Route path="/staff/staff-list" element={<StaffListPage />} />
-            <Route path="/supplier/supplier-list" element={<SupplierListPage />} />
-            <Route path="/customer/customer-list" element={<CustomerListPage />} />
+            <Route
+              path="/supplier/supplier-list"
+              element={<SupplierListPage />}
+            />
+            <Route
+              path="/customer/customer-list"
+              element={<CustomerListPage />}
+            />
+            <Route path="/setting/warehouse" element={<WarehouseListPage />} />
+            <Route path="/account/account-list" element={<AccountListPage />} />
+          </Route>
+
+          <Route element={<PosPageLayout />}>
+            <Route path="/sales/pos" element={<PosPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

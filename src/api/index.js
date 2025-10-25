@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import {
+  ADD_ACCOUNT,
   ADD_CATEGORY,
   ADD_CUSTOMER,
   ADD_EXPENSE,
@@ -9,7 +10,9 @@ import {
   ADD_SALE,
   ADD_STAFF,
   ADD_SUPPLIER,
+  ADD_WAREHOUSE,
   CHECK_SESSION,
+  DELETE_ACCOUNT,
   DELETE_CATEGORY,
   DELETE_CUSTOMER,
   DELETE_EXPENSE,
@@ -19,6 +22,8 @@ import {
   DELETE_SALE,
   DELETE_STAFF,
   DELETE_SUPPLIER,
+  DELETE_WAREHOUSE,
+  EDIT_ACCOUNT,
   EDIT_CATEGORY,
   EDIT_CUSTOMER,
   EDIT_EXPENSE,
@@ -28,6 +33,8 @@ import {
   EDIT_SALE,
   EDIT_STAFF,
   EDIT_SUPPLIER,
+  EDIT_WAREHOUSE,
+  FETCH_ALL_ACCOUNT,
   FETCH_ALL_CATEGORIES,
   FETCH_ALL_CUSTOMER,
   FETCH_ALL_EXPENSE,
@@ -36,6 +43,7 @@ import {
   FETCH_ALL_SALES,
   FETCH_ALL_STAFF,
   FETCH_ALL_SUPPLIER,
+  FETCH_ALL_WAREHOUSE,
   FETCH_PURCHASES,
   FETCH_SINGLE_PRODUCT,
   FETCH_SINGLE_PURCHASE,
@@ -266,5 +274,51 @@ export const fetchAllCustomer = () => {
 };
 export const deleteCustomer = async (id) => {
   const result = await mutationRequest(`${DELETE_CUSTOMER}/${id}`, "delete");
+  return result;
+};
+
+//  Bank Accounts
+export const addNewAccount = async (values) => {
+  const result = await mutationRequest(ADD_ACCOUNT, "post", values);
+  return result;
+};
+export const updateAccount = async (id, values) => {
+  const result = await mutationRequest(`${EDIT_ACCOUNT}/${id}`, "put", values);
+  return result;
+};
+export const fetchAllAccount = () => {
+  const { data, error, loading, mutate } = useSWR(FETCH_ALL_ACCOUNT, fetcher);
+  return { data, error, loading, mutate };
+};
+export const deleteAccount = async (id) => {
+  const result = await mutationRequest(`${DELETE_ACCOUNT}/${id}`, "delete");
+  return result;
+};
+
+//  Warehouse
+export const addNewWarehouse = async (values) => {
+  const result = await mutationRequest(ADD_WAREHOUSE, "post", values);
+  return result;
+};
+export const updateWarehouse = async (id, values) => {
+  const result = await mutationRequest(
+    `${EDIT_WAREHOUSE}/${id}`,
+    "put",
+    values
+  );
+  return result;
+};
+export const fetchAllWarehouse = () => {
+  const { data, error, loading, mutate } = useSWR(
+    FETCH_ALL_WAREHOUSE,
+    fetcher
+  );
+  return { data, error, loading, mutate };
+};
+export const deleteWarehouse = async (id) => {
+  const result = await mutationRequest(
+    `${DELETE_WAREHOUSE}/${id}`,
+    "delete"
+  );
   return result;
 };

@@ -5,6 +5,7 @@ import { AiFillEdit } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import CategoryForm from "../form-modals/CategoryForm";
 import {
+  deleteAccount,
   deleteCategory,
   deleteCustomer,
   deleteExpense,
@@ -14,6 +15,7 @@ import {
   deleteSale,
   deleteStaff,
   deleteSupplier,
+  deleteWarehouse,
 } from "../../api";
 import { errorMessage, successMessage } from "../../utility/helpers";
 import ProductForm from "../form-modals/ProductForm";
@@ -24,6 +26,8 @@ import StaffForm from "../form-modals/StaffForm";
 import SupplierForm from "../form-modals/SupplierForm";
 import CustomerForm from "../form-modals/CustomerForm";
 import ExpenseCatForm from "../form-modals/ExpenseCatForm";
+import WarehouseForm from "../form-modals/WarehouseForm";
+import AccountForm from "../form-modals/AccountForm";
 
 const FormModal = ({ table, type, id, data, title }) => {
   const [open, setopen] = useState(false);
@@ -64,6 +68,12 @@ const FormModal = ({ table, type, id, data, title }) => {
     customer: (type, data) => (
       <CustomerForm type={type} data={data} setopen={setopen} />
     ),
+    warehouse: (type, data) => (
+      <WarehouseForm type={type} data={data} setopen={setopen} />
+    ),
+    account: (type, data) => (
+      <AccountForm type={type} data={data} setopen={setopen} />
+    ),
   };
 
   const handleDelete = async () => {
@@ -86,6 +96,10 @@ const FormModal = ({ table, type, id, data, title }) => {
         ? await deleteSupplier(id)
         : table === "customer"
         ? await deleteCustomer(id)
+        : table === "warehouse"
+        ? await deleteWarehouse(id)
+        : table === "account"
+        ? await deleteAccount(id)
         : null;
     console.log("response", response);
     if (response?.status?.toString()?.includes("20")) {

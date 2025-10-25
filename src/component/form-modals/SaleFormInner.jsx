@@ -5,7 +5,7 @@ import AppSelectField from "../form/AppSelectField";
 import AppTextAreaField from "../form/AppTextAreaField";
 import { addSaleValues } from "../../utility/initialValues";
 import { validateAddSale } from "../../utility/validations";
-import { fetchAllProducts } from "../../api";
+import { fetchAllCustomer, fetchAllProducts } from "../../api";
 import { useEffect, useState } from "react";
 import {
   customers,
@@ -19,11 +19,7 @@ import {
 import Table from "../global/Table";
 import SelectedRowTemplate from "../sale/SelectedRowTemplate";
 
-const SaleFormInner = ({
-  type,
-  handleSubmit,
-  data,
-}) => {
+const SaleFormInner = ({ type, handleSubmit, data }) => {
   const initialValues = addSaleValues(data);
   const validationSchema = validateAddSale();
 
@@ -32,8 +28,26 @@ const SaleFormInner = ({
   const [selectedProduct, setselectedProduct] = useState([]);
   const [productArr, setproductArr] = useState();
   const [productClick, setproductClick] = useState(false);
-  const { data: productData, error: productError } = fetchAllProducts();
 
+  // const { data: customerData } = fetchAllCustomer();
+  // const [customer, setcustomer] = useState();
+  // console.log("customerData", customerData);
+  // console.log("this is working");
+
+  // useEffect(() => {
+  //   if (customerData) {
+  //     let dataArr = customerData?.data;
+  //     let newArr = [];
+  //     if (dataArr?.length) {
+  //       for (let ele of dataArr) {
+  //         newArr.push(ele?.customer);
+  //       }
+  //       setcustomer(newArr);
+  //     }
+  //   }
+  // }, [customerData]);
+
+  const { data: productData, error: productError } = fetchAllProducts();
   const handleSearch = (val) => {
     setsearch(val);
     setshowProducts(true);
@@ -63,10 +77,8 @@ const SaleFormInner = ({
       qunatity: 5,
     });
     setselectedProduct(currProducts);
-    setproductClick(!productClick)
+    setproductClick(!productClick);
   };
-
-  console.log("selectedProduct", selectedProduct);
 
   return (
     <CustomFormik
@@ -211,13 +223,12 @@ const SaleFormInner = ({
 
           <input
             type="text"
-            onChange={(e) =>  {
-              handleSearch(e.target.value) 
-              productClick ? e.target.value = "" : null
-            } }
+            onChange={(e) => {
+              handleSearch(e.target.value);
+              productClick ? (e.target.value = "") : null;
+            }}
             className="border mx-2 p-2 rounded"
             placeholder="search product"
-            
           />
           {showProducts
             ? productArr?.map((ele, i) => (

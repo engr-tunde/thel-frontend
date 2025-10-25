@@ -1,3 +1,5 @@
+
+
 export const loginAdminValues = () => {
   const initialValues = {
     email: "",
@@ -208,6 +210,25 @@ export const addSaleValues = (data) => {
     payment_status: data ? data.payment_status : 0,
     sale_note: data ? data.sale_note : "",
     staff_note: data ? data.staff_note : "",
+  };
+  return initialValues;
+};
+
+export const addAccountValues = (data) => {
+  const initialValues = {
+    bank_name: data ? data.bank_name : "",
+    account_name: data ? data.account_name : "",
+    account_number: data ? data.account_number : "",
+    initial_balance: data ? data.initial_balance : "",
+    available_balance: data ? data.available_balance : "",
+  };
+  return initialValues;
+};
+
+export const addWarehouseValues = (data) => {
+  const initialValues = {
+    warehouse: data ? data.warehouse : "",
+    warehouse_slug: data ? data.warehouse_slug : "",
   };
   return initialValues;
 };

@@ -28,22 +28,21 @@ const ExpenseFormInner = ({
   const initialValues = addExpenseValues(data);
   const validationSchema = validateAddExpense();
 
-  const { data:expenseCatData } = fetchAllExpenseCategory();
-  console.log("expenseCatData", expenseCatData);
+  const { data: expenseCatData } = fetchAllExpenseCategory();
 
-   const [cats, setcats] = useState();
-    useEffect(() => {
-      if (expenseCatData) {
-        let dataArr = expenseCatData?.data;
-        let newArr = [];
-        if (dataArr?.length) {
-          for (let ele of dataArr) {
-            newArr.push(ele?.category);
-          }
-          setcats(newArr);
+  const [cats, setcats] = useState();
+  useEffect(() => {
+    if (expenseCatData) {
+      let dataArr = expenseCatData?.data;
+      let newArr = [];
+      if (dataArr?.length) {
+        for (let ele of dataArr) {
+          newArr.push(ele?.category);
         }
+        setcats(newArr);
       }
-    }, [expenseCatData]);
+    }
+  }, [expenseCatData]);
 
   return (
     <CustomFormik
@@ -72,12 +71,14 @@ const ExpenseFormInner = ({
               <label htmlFor="" className="text-[#785873] text-sm">
                 Expense Category
               </label>
-              { cats && <AppSelectField
-                name="expense_category"
-                array={cats}
-                title="Select Expense Category"
-                defaultValue={data?.expense_category}
-              />}
+              {cats && (
+                <AppSelectField
+                  name="expense_category"
+                  array={cats}
+                  title="Select Expense Category"
+                  defaultValue={data?.expense_category}
+                />
+              )}
             </div>
             <div className="flex flex-col gap-1 w-full">
               <label htmlFor="" className="text-[#785873] text-sm">

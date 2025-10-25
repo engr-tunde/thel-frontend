@@ -61,3 +61,16 @@ export const FETCH_ALL_CUSTOMER = "/people/customer/fetch-all-customers";
 export const ADD_CUSTOMER = "/people/customer/add-customer";
 export const EDIT_CUSTOMER = "/people/customer/update-customer";
 export const DELETE_CUSTOMER = "/people/customer/delete-customer";
+
+// Bank Accounts
+export const FETCH_ALL_ACCOUNT = "/general/accounting/fetch-bank-details";
+export const ADD_ACCOUNT = "/general/accounting/add-bank-details";
+export const EDIT_ACCOUNT = "/general/accounting/edit-bank-details";
+export const DELETE_ACCOUNT = "/general/accounting/delete-bank-details";
+
+
+// Warehouse
+export const FETCH_ALL_WAREHOUSE = "/general/warehouse/fetch-warehouses";
+export const ADD_WAREHOUSE = "/general/warehouse/add-warehouse";
+export const EDIT_WAREHOUSE = "/general/warehouse/edit-warehouse";
+export const DELETE_WAREHOUSE = "/general/warehouse/delete-warehouse";

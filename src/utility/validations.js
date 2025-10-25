@@ -216,13 +216,32 @@ export const validateAddSale = () => {
     discount: yup.number(),
     order_tax: yup.number(),
     shipping_cost: yup.number(),
-    // total_before_discount: yup.number(),
-    // grand_total: yup.number(),
     delivery_status: yup.string().required("Payment status is missing"),
     sale_status: yup.string().required("Payment status is missing"),
     payment_status: yup.string().required("Payment status is missing"),
     sale_note: yup.string(),
     staff_note: yup.string(),
+  });
+
+  return validationSchema;
+};
+
+export const validateAccount = () => {
+  const validationSchema = yup.object({
+    bank_name: yup.string().required(" the date is missing"),
+    account_name: yup.string().required(" the date is missing"),
+    account_number: yup.string().required(" the date is missing"),
+    initial_balance: yup.number().required(" the date is missing"),
+    available_balance: yup.number().required(" the date is missing"),
+  });
+
+  return validationSchema;
+};
+
+export const validateAddWarehouse = () => {
+  const validationSchema = yup.object({
+    warehouse: yup.string().required(" the date is missing"),
+    warehouse_slug: yup.string().required(" the date is missing"),
   });
 
   return validationSchema;

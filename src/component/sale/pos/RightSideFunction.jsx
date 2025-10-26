@@ -7,8 +7,8 @@ import { GoBriefcase } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { fetchAllProducts } from "../../../api";
-import { homeMenu } from "../../../data/posData";
 import { Link } from "react-router-dom";
+import { homeMenu } from "../../../data/posData";
 
 const RightSideFunction = () => {
   const { data: productData, error: productError } = fetchAllProducts();
@@ -30,7 +30,7 @@ const RightSideFunction = () => {
 
           {open ? (
             <div className="absolute shadow-2xl bg-white text-sm flex flex-col gap-2 py-4 px-2 rounded-md">
-              {homeMenu.map((item, i) => (
+              {homeMenu?.map((item, i) => (
                 <Link to={item?.link} key={i}>
                   {item?.title}
                 </Link>

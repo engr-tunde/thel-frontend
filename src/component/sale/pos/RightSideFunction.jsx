@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 
 const RightSideFunction = () => {
   const { data: productData, error: productError } = fetchAllProducts();
-  console.log("productData", productData);
 
   const [open, setopen] = useState(false);
 

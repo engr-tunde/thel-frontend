@@ -63,11 +63,11 @@ const RightSideFunction = () => {
           <div key={i} className="">
             <div className="flex flex-col justify-center items-center p-2 border-[1px] border-gray-300 h-40 gap-1">
               <div className="flex items-center justify-center w-full h-[60%]">
-                {/* <img
+                <img
                   src={item?.image}
                   alt="products"
                   className="h-full object-center"
-                /> */}
+                />
               </div>
               <span className="text-[13px] text-center">
                 {item?.product_name}

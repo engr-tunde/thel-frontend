@@ -80,7 +80,7 @@ function App() {
           </Route>
 
           <Route element={<PosPageLayout />}>
-            <Route path="sales/pos" element={<PosPage />} />
+            <Route path="/sales/pos" element={<PosPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

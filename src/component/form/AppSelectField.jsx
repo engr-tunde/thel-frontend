@@ -9,7 +9,7 @@ const AppSelectField = ({ name, placeholder, array, title, ...rest }) => {
   const isInputTouched = touched[name];
 
   return (
-    <div className="col-span-1">
+    <div className="col-span-1 w-full">
       <Field name={name} as="select" className="border rounded-md p-2 w-full">
         {title ? <option value="">{title}</option> : null}
         {array.map((item, i) => (

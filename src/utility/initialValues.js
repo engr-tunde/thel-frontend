@@ -232,3 +232,13 @@ export const addWarehouseValues = (data) => {
   };
   return initialValues;
 };
+
+export const addPosLeftSIdeValues = (data) => {
+  const initialValues = {
+    date: data ? data.date : "",
+    warehouse: data ? data.warehouse : "",
+    biller: data ? data.biller : "",
+    customer: data ? data.customer : "",
+  };
+  return initialValues;
+};

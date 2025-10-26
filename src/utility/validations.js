@@ -246,3 +246,14 @@ export const validateAddWarehouse = () => {
 
   return validationSchema;
 };
+
+export const validatePosLeftSIde = () => {
+  const validationSchema = yup.object({
+    date: yup.string().required(" the date is missing"),
+    warehouse: yup.string().required(" the date is missing"),
+    biller: yup.string().required(" the date is missing"),
+    customer: yup.string().required(" the date is missing"),
+  });
+
+  return validationSchema;
+};

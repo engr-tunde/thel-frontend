@@ -79,8 +79,8 @@ function App() {
             <Route path="/account/account-list" element={<AccountListPage />} />
           </Route>
 
-          <Route element={<PosPageLayout />}>
-            <Route path="/sales/pos" element={<PosPage />} />
+          <Route path="/sales" element={<PosPageLayout />}>
+            <Route path="pos" element={<PosPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

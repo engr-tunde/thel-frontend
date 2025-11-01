@@ -18,8 +18,8 @@ import ExpenseCategoryListPage from "./pages/expense/expenseCategory.jsx";
 import SupplierListPage from "./pages/supplier/index.jsx";
 import WarehouseListPage from "./pages/warehouse/index.jsx";
 import AccountListPage from "./pages/account/index.jsx";
-import { PosPage } from "./pages/sale/pospage.jsx";
 import PosPageLayout from "./layouts/PosPageLayout.jsx";
+import PosPage from "./pages/sale/pos-page.jsx";
 
 function App() {
   const [count, setCount] = useState(0);

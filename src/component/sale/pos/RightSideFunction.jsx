@@ -10,7 +10,7 @@ import { fetchAllProducts } from "../../../api";
 import { Link } from "react-router-dom";
 import { homeMenu } from "../../../data/posData";
 
-const RightSideFunction = () => {
+const RightSideFunction = ({ handleAddItemToCart, addedProducts }) => {
   const { data: productData, error: productError } = fetchAllProducts();
 
   const [open, setopen] = useState(false);
@@ -59,23 +59,35 @@ const RightSideFunction = () => {
       </div>
 
       <div className="w-full grid grid-cols-4 gap-2 overflow-y-scroll">
-        {productData?.data?.map((item, i) => (
-          <div key={i} className="">
-            <div className="flex flex-col justify-center items-center p-2 border-[1px] border-gray-300 h-40 gap-1">
-              <div className="flex items-center justify-center w-full h-[60%]">
-                <img
-                  src={item?.image}
-                  alt="products"
-                  className="h-full object-center"
-                />
-              </div>
-              <span className="text-[13px] text-center">
-                {item?.product_name}
-              </span>
-              <span className="text-[13px] text-center">
-                {item?.product_code}
-              </span>
+        {productData?.data?.map((prod, i) => (
+          <div
+            onClick={() => {
+              console.log("item clicked", prod);
+              console.log("addedProducts clicked", addedProducts);
+              handleAddItemToCart(prod);
+            }}
+            key={i}
+            className={`flex flex-col justify-center items-center p-2  border-gray-300 h-40 gap-1 ${
+              addedProducts.filter(
+                (ele) => ele.product_code === prod.product_code
+              )[0]
+                ? "border-[20px]"
+                : "border-[1px]"
+            }`}
+          >
+            <div className="flex items-center justify-center w-full h-[60%]">
+              <img
+                src={prod?.image}
+                alt="products"
+                className="h-full object-center"
+              />
             </div>
+            <span className="text-[13px] text-center">
+              {prod?.product_name}
+            </span>
+            <span className="text-[13px] text-center">
+              {prod?.product_code}
+            </span>
           </div>
         ))}
       </div>

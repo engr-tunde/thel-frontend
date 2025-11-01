@@ -13,8 +13,9 @@ import SelectedRowTemplate from "../SelectedRowTemplate";
 import Table from "../../global/Table";
 import { FiEdit } from "react-icons/fi";
 import ScannerModal from "../../global/ScannerModal";
+import { currencyFormatter } from "../../../utility/helpers";
 
-const LeftSideFunction = () => {
+const LeftSideFunction = ({ total, addedProducts }) => {
   const initialValues = addPosLeftSIdeValues();
   const validationSchema = validatePosLeftSIde();
 
@@ -173,7 +174,7 @@ const LeftSideFunction = () => {
             </div>
             <div className="w-full flex items-center gap-3">
               <span className="text-[#7c5cc4]">Total</span>
-              <span className="text-[#7c5cc4]">0.00</span>
+              <span className="text-[#7c5cc4]">{currencyFormatter(total)}</span>
             </div>
             <div className="w-full flex items-center gap-3">
               <span className="text-[#7c5cc4]">Discount</span>
